@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class Student{
+public:// making class public
+string name;
+double *cgpaptr; // using pointer
+// using parameterised constructor
+Student(string name, double cgpa){
+this->name= name;
+cgpaptr=new double;
+*cgpaptr= cgpa;
+}
+// making deep copy constructor 
+Student(Student &org){
+this->name=org.name;
+cgpaptr= new double;// this is important line for deep copy,
+*cgpaptr=*org.cgpaptr;
+
+}
+void print(){
+cout<<"NAME : "<<name<<endl;
+cout<<"CGPA : "<<*cgpaptr<<endl;
+}
+};
+int main(){
+    Student s1("IZAAN", 6.4);
+    Student s2(s1);
+    s1.print();
+    *(s2.cgpaptr)=8.42;
+    s1.print();
+     return 0;
+}
