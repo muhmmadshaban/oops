@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;    /// here we are making shallow copy of the constructor
+class Student   // creating the class
+{       
+public: // making class public
+    string name;
+    double* cgpaptr;
+    // ālso using parameterised constructor.
+    Student(string name, double cgpa)
+    {
+        this->name = name;
+        cgpaptr = new double;
+        *cgpaptr= cgpa;
+    }
+    Student(Student &org)// shallow copy constructor,
+    { 
+        this->name = org.name;
+        this->cgpaptr = org.cgpaptr;
+    }
+    // for printing
+    void print()
+    {
+        cout << "NAME: " << name << endl;
+        cout << "CGPA : " << *cgpaptr << endl;
+    }
+};
+int main()
+{
+    Student s1("Shaban", 8.7);
+    Student s2(s1);
+s1.print();
+*(s2.cgpaptr) = 7.22;
+s1.print();
+
+    return 0;
+}
