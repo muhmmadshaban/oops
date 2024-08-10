@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std; /// concept of single line inheritance
+// making parent public class
+class Person
+{
+public:
+    string name;
+    int age;
+    // making custom paramerised constructor for single level inheritance 
+    Person(string name,int age)
+    {
+     this->name=name;
+     this->age=age;   
+    }
+};
+
+class Student : public Person
+{ // making child class
+public:
+    int roll;
+    // making custom paramerised constructor for single level inheritance 
+    Student(string name,int age,int roll) : Person(name,age){
+        
+        this->roll=roll;
+
+
+    }
+
+    void print()
+    {
+        cout << "NAME : " << name << endl;
+        cout << "AGE : " << age << endl;
+        cout << "ROLL NO : " << roll << endl;
+    }
+};
+
+int main()
+{
+    Student s1("shabna",98,875);
+    
+    s1.print();
+
+    return 0;
+}
