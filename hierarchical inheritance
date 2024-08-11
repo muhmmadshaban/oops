@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+using namespace std; //hierachical inheritance(1 parent 2 child)
+class Person {  public:
+string name;
+int age;               //making custom constructor
+Person(string name,int age){
+    this->name=name;
+    this->age=age;
+}
+};
+class Student: public Person{
+    public:
+int roll;          //making custom constructor
+Student(string name,int age, int roll): Person(name,age){
+this->roll=roll;
+}
+void print(){
+        cout<<"NAME : "<<name<<endl;
+        cout<<"AGE : "<<age<<endl;
+        cout<<"ROLL NO. : "<<roll<<endl;
+     }
+};
+class Teacher: public Person{
+    public:
+    string subject;
+    double sallary;                    //making custom constructor
+     Teacher(string name,int age,string subject,double sallary) : Person(name,age){
+        this->subject=subject;
+        this->sallary=sallary;
+    }
+    void print(){
+        cout<<"NAME : "<<name<<endl;
+        cout<<"AGE : "<<age<<endl;
+        cout<<"SUBJECT : "<<subject<<endl;
+        cout<<"SALLARY  : "<<sallary<<endl;
+    }
+};
+int main(){
+    Teacher T1("Shabana",19,"C++",30000);
+    T1.print();
+    Student S1("SHABAN",12,3234);
+    S1.print();
+    return 0;
+}
