@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+using namespace std; //multiple inheritance(2 parent one child)
+class Person {
+    public:
+string name;
+int age;
+// custom constructor
+Person(string name,int age){
+    this->name=name;
+    this->age=age;
+}
+};
+class Student{
+    public:
+int roll;
+//making custom constructor
+Student(int roll){
+this->roll=roll;
+}
+};
+class Teacher: public Student,public Person{
+    public:
+    string subject;
+    double sallary;
+    //making custom constructor
+    Teacher(string name,int age,int roll,string subject,double sallary) : Student(roll), Person(name,age){
+        this->subject=subject;
+        this->sallary=sallary;
+    }
+    void print(){
+        cout<<"NAME : "<<name<<endl;
+        cout<<"AGE : "<<age<<endl;
+        cout<<"ROLL NO. : "<<roll<<endl;
+        cout<<"SUBJECT : "<<subject<<endl;
+        cout<<"SALLARY  : "<<sallary<<endl;
+    }
+};
+int main(){
+    Teacher T1("Shabana",19,321,"C++",30000);
+    T1.print();
+    T1.subject="MAths";
+    T1.print();
+    return 0;
+}
