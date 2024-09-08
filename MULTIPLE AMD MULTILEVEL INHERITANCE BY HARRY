@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+class SimpleCalculator{
+    protected:
+    int a;
+    int b;
+    public:
+    void set(int x,int y){
+         a=x;
+         b=y;
+    }
+    void add_show(){
+        cout<<" ADDITION OF TWO NUMBER IS "<<a+b<<endl;
+    }
+    void subtract_show(){
+        cout<<"SUBTRACTION OF TwO NUMBER IS "<<a-b<<endl;
+    }
+    void multiply_show(){
+        cout<<"MULTIPLICATION OF TWO NUMBER IS "<<a*b<<endl;
+    }
+};
+class scientificCalculator{
+protected:
+int a;
+int b;
+public:
+void set_science(int x,int y){
+    a=x;
+    b=y;
+}
+void modulus_show(){
+    cout<<"THE REMAINDER OF TWO NUMBER IS "<<a%b<<endl;
+}
+
+};
+//multiple inheritance
+class HybridCalcultor: public SimpleCalculator, public scientificCalculator{
+public:
+void show(){
+    cout<<"THE HYBRID CALCULATOR CALL IS "<<endl;
+    add_show();
+    multiply_show();
+    subtract_show();
+    modulus_show();
+}
+};
+int main(){
+ HybridCalcultor Shaban;
+ Shaban.set(10,5);
+ Shaban.set_science(10,5);
+ Shaban.multiply_show();
+ Shaban.modulus_show();
+ Shaban.show();
+
+    return 0;
+}
