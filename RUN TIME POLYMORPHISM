@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+class Base
+{
+public:
+    int baseValue;
+    void get()
+    {
+        cout << "BASE CLASS METHOD USING POINTER " << baseValue << endl;
+    }
+};
+class Derived : public Base
+{
+public:
+    int derivedValue;
+    void get()
+    {
+        cout << "DERIVED CLASS METHOD USING POINTER " << derivedValue << endl;
+    }
+};
+int main()
+{
+    Base *ptr_base;// pointer
+    ptr_base->get();
+    Derived derived1;
+    ptr_base = &derived1;
+    ptr_base->baseValue = 100;
+    ptr_base->get();
+    // ptr_base->deri=18;// will throw error
+    ptr_base->get();
+
+    return 0;
+}
